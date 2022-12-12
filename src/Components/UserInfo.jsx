@@ -1,33 +1,28 @@
-import React from "react";
-
-const cohort = "2211-FTB-ET-WEB-FT";
+import React, { useState } from "react";
+import { DeletePost } from "./DeletePost";
 
 export const UserInfo = (props) => {
-  const handleClick = () => {
-    fetch(
-      `https://strangers-things.herokuapp.com/api/${cohort}/posts/5e8d1bd48829fb0017d2233b`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${}`,
-        },
-      }
-    );
-  };
-
+  const [post, setPost] = useState([]);
+  const authorId = props.token;
   return (
     <div>
       <div>
         {props.userData && props.userData.posts ? (
           props.userData.posts.map((myPost) => {
+            const postId = myPost._id;
             return (
               <div className="myPost" key={myPost._id}>
                 <p> {myPost.title}</p>
                 <p> {myPost.description}</p>
                 <p>Price: {myPost.price}</p>
                 <p>Location: {myPost.location}</p>
-                <button onClick={handleClick}>Delete</button>
+                <button
+                  onClick={async () => {
+                    const postDelete = await DeletePost(authorId, postId);
+                  }}
+                >
+                  Delete Post
+                </button>
               </div>
             );
           })
