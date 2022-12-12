@@ -5,8 +5,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(60, 127, 250, 0.972);
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,7 +17,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #210fee;
   text-decoration: inherit;
 }
 a:hover {
@@ -67,4 +67,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.listing {
+  box-shadow: 0 4px 10px 0;
+  margin: 5px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(18, 184, 225);
 }
